@@ -9,20 +9,30 @@ Al suo interno sono presenti 3 cartelle che rappresentano 3 differenti insegname
 | Homework2: progetto in cui viene costruita una rete neurale convoluzionale per la classificazione di immagini. Viene anche usata una rete neurale pre addestrata sulla quale viene eseguito del fine tuning. 
 | Homework_finale: progetto in cui si costruisce da zero una rete neurale concatenata per la classificazione di immagini.
 
-| Gestione ed elaborazione di Big Data |
-| ---------------------- |
-| recommender_system: progetto in cui viene implementato un algoritmo che permette di ottenere delle
-raccomandazioni da un data set contenente gli utenti, i film e le votazioni
-Per farlo viene implementato l'algoritmo ALS (Alternate Least
-Squares) tramite Spark. Il codice è suddiviso in tre fasi fondamentali più un'ultima parte in cui si va
-a interrogare il database.
-- La prima fase consiste nell'andare a caricare su MongoDB il set di dati; per fare
-ciò i dati subiranno prima delle trasformazioni tramite PySpark e il database verrà
-inoltre arricchito con ulteriori dati (recuperati dal set originale o creati a partire
-dalle altre collezioni).
-- La seconda fase prevede invece l'implementazione tramite PySpark dell'algoritmo
-prima citato.
-- Infine la terza fase prevede la produzione di raccomandazioni sulla base dei
-risultati ottenuti grazie all'algoritmo e al loro caricamento, sempre su MongoDB.
-Infine è prevista una piccolissima parte in cui si interroga il database, così
-da mostrare dei potenziali usi per quanto prodotto.
+## Data Mining
+
+| Progetto | Descrizione e Tecniche Utilizzate |
+| :--- | :--- |
+| `Homework1` | Sviluppo di una **rete neurale** per la classificazione di una variabile target binaria. Il dataset di partenza risulta fortemente sbilanciato; sono state pertanto implementate e documentate specifiche tecniche di campionamento e bilanciamento per ottimizzare le metriche di valutazione del modello. |
+| `Homework2` | Progettazione e addestramento di una **Rete Neurale Convoluzionale (CNN)** dedicata alla classificazione di immagini. All'architettura personalizzata è stato affiancato l'utilizzo di una rete pre-addestrata (Transfer Learning), sulla quale è stata eseguita una procedura di **Fine-Tuning** per migliorarne l'accuratezza sul dominio specifico. |
+| `Homework_finale` | Sviluppo end-to-end di una **rete neurale concatenata** (Multi-Input/Complex Architecture) costruita interamente da zero per la classificazione avanzata di immagini. |
+
+<br>
+
+## Gestione ed Elaborazione di Big Data
+
+| Repository / Directory | Pipeline di Sviluppo ed Architettura |
+| :--- | :--- |
+| `recommender_system` | Implementazione di un sistema di raccomandazione di film basato su un dataset di utenti, pellicole e valutazioni. Il cuore del progetto prevede l'applicazione dell'algoritmo **ALS (Alternating Least Squares)** distribuito tramite **Apache Spark** e l'integrazione con il database NoSQL **MongoDB**. |
+
+### Dettaglio delle Fasi del Progetto `recommender_system`
+
+L'architettura del sistema è suddivisa in quattro moduli sequenziali e interconnessi:
+
+1. **Ingegnerizzazione e Caricamento Dati (ETL)** I dati grezzi vengono estratti, trasformati e strutturati tramite **PySpark**. In questa fase il dataset viene arricchito generando nuove feature dalle collezioni esistenti o integrando informazioni dal set originale, per poi procedere al caricamento massivo su **MongoDB**.
+
+2. **Addestramento del Modello** Configurazione e calcolo dell'algoritmo di fattorizzazione matriciale **ALS** sfruttando la potenza del calcolo distribuito di **PySpark** per gestire l'interazione sparsa utenti-item.
+
+3. **Generazione e Stoccaggio delle Raccomandazioni** Produzione delle raccomandazioni personalizzate per l'utenza sulla base dei fattori latenti appresi dal modello. Gli output predittivi vengono formattati e salvati nuovamente su **MongoDB** per garantirne la persistenza.
+
+4. **Interrogazione e Analisi dei Risultati** Implementazione di una sezione di test dedicata alle query sul database NoSQL, volta a simulare casi d'uso reali e a dimostrare l'efficacia e la rapidità di recupero delle raccomandazioni generate.
