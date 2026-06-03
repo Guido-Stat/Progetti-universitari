@@ -3,12 +3,6 @@ Repository in cui sono presenti i progetti universitari che ho portato a termine
 
 Al suo interno sono presenti 3 cartelle che rappresentano 3 differenti insegnamenti universitari, organizzate come segue: 
 
-| Data mining |
-| ---------------------- |
-| Homework1: progetto in cui viene realizzata una rete neurale per la classificazione di una variabile target binaria. Il dataset è sbilanciato, quindi vengono usate delle tecniche per far fronte a questa problematica     
-| Homework2: progetto in cui viene costruita una rete neurale convoluzionale per la classificazione di immagini. Viene anche usata una rete neurale pre addestrata sulla quale viene eseguito del fine tuning. 
-| Homework_finale: progetto in cui si costruisce da zero una rete neurale concatenata per la classificazione di immagini.
-
 ## Data Mining
 
 | Progetto | Descrizione e Tecniche Utilizzate |
@@ -21,7 +15,7 @@ Al suo interno sono presenti 3 cartelle che rappresentano 3 differenti insegname
 
 ## Gestione ed Elaborazione di Big Data
 
-| Repository / Directory | Pipeline di Sviluppo ed Architettura |
+| Progetto | Pipeline di Sviluppo ed Architettura |
 | :--- | :--- |
 | `recommender_system` | Implementazione di un sistema di raccomandazione di film basato su un dataset di utenti, pellicole e valutazioni. Il cuore del progetto prevede l'applicazione dell'algoritmo **ALS (Alternating Least Squares)** distribuito tramite **Apache Spark** e l'integrazione con il database NoSQL **MongoDB**. |
 
