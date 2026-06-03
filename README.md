@@ -30,3 +30,29 @@ L'architettura del sistema è suddivisa in quattro moduli sequenziali e intercon
 3. **Generazione e Stoccaggio delle Raccomandazioni** Produzione delle raccomandazioni personalizzate per l'utenza sulla base dei fattori latenti appresi dal modello. Gli output predittivi vengono formattati e salvati nuovamente su **MongoDB** per garantirne la persistenza.
 
 4. **Interrogazione e Analisi dei Risultati** Implementazione di una sezione di test dedicata alle query sul database NoSQL, volta a simulare casi d'uso reali e a dimostrare l'efficacia e la rapidità di recupero delle raccomandazioni generate.
+
+## Statistica learning
+
+| Progetto | Descrizione e Tecniche Utilizzate |
+| :--- | :--- |
+| Script | Pipeline in Python per la predizione del successo dei brani musicali. Implementa l'estrazione di feature acustiche multivariata tramite API (**MusicBrainz**, **AcousticBrainz**, **Spotify**), il pre-processing dei dati e l'addestramento di un modello di classificazione supervisionata (`RandomForestClassifier`), integrando la metodologia di **Conformal Prediction** per la quantificazione dell'incertezza statistica tramite insiemi di predizione garantiti. |
+
+<br>
+
+### Focus Progetto: Analisi e Predizione del Successo Musicale (`Homework_finale`)
+
+L'obiettivo principale dell'elaborato è estrarre, elaborare e modellare le caratteristiche acustiche e metadati dei brani per predirne l'impatto sul mercato. La pipeline si articola nelle seguenti macro-fasi:
+
+1. **Raccolta Dati ed Enrichment (Web Scraping & API)**
+   * Interrogazione ed estrazione dei metadati identificativi degli artisti e dei brani tramite l'API di **MusicBrainz**.
+   * Recupero dei descrittori audio e delle feature acustiche a basso e alto livello (frequenze, dinamica, timbro) mediante le API di **AcousticBrainz** e l'integrazione con la libreria `spotipy` per il catalogo **Spotify**.
+
+2. **Pre-processing e Feature Engineering**
+   * Pulizia del dataset e trattamento dei valori mancanti o inconsistenti.
+   * Selezione delle feature e rimozione degli identificatori univoci non predittivi (es. `MBID`, titoli di canzoni e album) per evitare il filtraggio mnemonico nei modelli.
+
+3. **Modellazione e Conformal Prediction**
+   * Addestramento di classificatori statistici e supervisionati (es. `RandomForestClassifier`) per la categorizzazione dei livelli di popolarità.
+   * Implementazione della **Conformal Prediction** (mediante split-conformal e calcolo dei quantili sui punteggi di non-conformità) per associare a ciascuna classificazione puntuale un **insieme di predizione (Conformal Set)** garantito da una validazione di copertura empirica controllata ($\ge 1 - \alpha$).
+
+<br>
