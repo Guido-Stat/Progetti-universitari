@@ -7,4 +7,9 @@ Per la lettura consultare le indicazioni sottostanti.
 | Data mining |
 | ---------------------- |
 | Homework1: progetto in cui viene realizzata una rete neurale per la classificazione di una variabile target binaria. Il dataset è sbilanciato, quindi vengono usate delle tecniche per far fronte a questa problematica     
-| Homework2: progetto in cui viene costruita una rete neurale convoluzionale per la classificazione di immagini. Viene anche usata una rete neurale pre addestrata sulla quale viene eseguito del fine tuning.       
+| Homework2: progetto in cui viene costruita una rete neurale convoluzionale per la classificazione di immagini. Viene anche usata una rete neurale pre addestrata sulla quale viene eseguito del fine tuning. 
+| Homework_finale: progetto in cui si costruisce da zero una rete neurale concatenata per la classificazione di immagini.
+
+| Gestione ed elaborazione di Big Data |
+| ---------------------- |
+|
